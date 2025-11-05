@@ -317,7 +317,8 @@ public class TripPlannerViewModel: ObservableObject {
         mapCoordinator.clearRoute()
         mapCoordinator.clearLocations()
 
-        // TODO: Notify that route preview ended
+        // Notify that trip has ended
+        notificationCenter.post(name: Notifications.tripEnded, object: nil)
 
         // Clear error states
         errorMessage = nil

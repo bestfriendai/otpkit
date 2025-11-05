@@ -40,18 +40,14 @@ struct ErrorCardView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(.background)
-                .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: -5)
-        )
+        .cardStyle(cornerRadius: 12, backgroundColor: .background)
         .padding(.horizontal)
     }
 }
 
 #Preview {
     ErrorCardView(message: "Something went wrong while planning your trip", onDismiss: {
-        print("Oh i got dimissed")
+        // Preview dismiss action
     })
         .preferredColorScheme(.dark)
 }

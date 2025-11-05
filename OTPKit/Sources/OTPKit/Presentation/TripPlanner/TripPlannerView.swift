@@ -179,7 +179,7 @@ private extension TripPlannerView {
         viewModel: viewModel,
         mapCoordinator: mapCoordinator
     ) {
-        print("Close me!")
+        // Preview close action
     }
     .frame(height: 320)
 }

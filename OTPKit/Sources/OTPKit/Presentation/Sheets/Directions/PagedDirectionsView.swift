@@ -71,9 +71,9 @@ struct PagedDirectionsView: View {
         itinerary: PreviewHelpers.buildItin(legsCount: 3)
     )
 
-    PagedDirectionsView(trip: trip, onTap: { leg, _ in
-        print("Leg tapped: \(leg)")
-    }, onPageChange: { pageId in
-        print("Page changed to: \(pageId)")
+    PagedDirectionsView(trip: trip, onTap: { _, _ in
+        // Preview tap action
+    }, onPageChange: { _ in
+        // Preview page change action
     })
 }

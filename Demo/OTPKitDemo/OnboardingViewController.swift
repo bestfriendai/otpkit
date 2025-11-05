@@ -39,7 +39,7 @@ class OnboardingViewController: UIViewController {
 
     private func setupUI() {
         let titleLabel = UILabel()
-        titleLabel.text = "OTPKit Demo Setup"
+        titleLabel.text = "OpenTrip Setup"
         titleLabel.font = .systemFont(ofSize: 28, weight: .bold)
         titleLabel.textAlignment = .center
         titleLabel.translatesAutoresizingMaskIntoConstraints = false

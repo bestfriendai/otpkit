@@ -142,8 +142,8 @@ struct CurrentLocationButton: View {
 // MARK: - Preview
 
 #Preview {
-    CurrentLocationButton { location in
-        print("Selected location: \(location.title)")
+    CurrentLocationButton { _ in
+        // Preview location selection
     }
     .padding()
 }

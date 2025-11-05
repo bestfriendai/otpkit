@@ -56,6 +56,6 @@ struct LocationOptionButton: View {
         subtitle: "Use your current GPS location",
         color: .green
     ) {
-        print("Action tapped")
+        // Preview action
     }
 }

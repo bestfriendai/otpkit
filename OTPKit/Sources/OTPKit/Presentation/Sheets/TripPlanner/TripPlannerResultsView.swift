@@ -55,11 +55,7 @@ public struct TripPlannerResultsView: View {
                     ItineraryPreviewView(itinerary: itinerary, onItinerarySelected: onItinerarySelected)
                 })
                 .foregroundStyle(.foreground)
-                .background(
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(.regularMaterial)
-                        .shadow(radius: 2) // ok now i made it ugly :(
-                )
+                .subtleCardStyle(cornerRadius: 8)
             }
         }
         .padding(.horizontal, 16)

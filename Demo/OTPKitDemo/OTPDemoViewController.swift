@@ -19,6 +19,9 @@ import CoreLocation
 import MapKit
 import SwiftUI
 import OTPKit
+import OSLog
+
+fileprivate let logger = Logger(subsystem: "org.onebusaway.opentrip", category: "viewController")
 
 // MARK: - Main View Controller
 
@@ -97,7 +100,7 @@ class OTPDemoViewController: UIViewController {
     }
 
     private func setupUI() {
-        title = "OTPKit Demo"
+        title = "OpenTrip"
 
         // Add navigation bar buttons
         navigationItem.leftBarButtonItem = UIBarButtonItem(
@@ -187,28 +190,30 @@ class OTPDemoViewController: UIViewController {
     }
 
     @objc private func itinerariesUpdated(_ note: NSNotification) {
-        print(#function)
+        logger.debug("\(#function)")
         hostingController?.animateToDetentIdentifier(.large)
     }
 
     @objc private func itineraryPreviewStarted(_ note: NSNotification) {
-        print(#function)
-        // nop
+        logger.debug("\(#function)")
+        // Itinerary preview started - UI handled by trip planner
     }
 
-    // TODO: wire this up! the notification doesn't get triggered yet.
     @objc private func itineraryPreviewEnded(_ note: NSNotification) {
-        print(#function)
+        logger.debug("\(#function)")
+        // Itinerary preview ended - return to trip planning view
     }
 
     @objc private func tripStarted(_ note: NSNotification) {
-        print(#function)
+        logger.debug("\(#function)")
+        // Minimize the sheet when trip starts to show more of the map
         hostingController?.animateToDetentIdentifier(.tip)
     }
 
-    // TODO: wire this up! the notification doesn't get triggered yet.
     @objc private func tripEnded(_ note: NSNotification) {
-        print(#function)
+        logger.debug("\(#function)")
+        // Trip ended - return to default view state
+        hostingController?.animateToDetentIdentifier(.medium)
     }
 
     // MARK: - Helper Methods

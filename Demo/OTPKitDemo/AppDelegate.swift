@@ -7,6 +7,9 @@
 
 import Foundation
 import UIKit
+import OSLog
+
+fileprivate let logger = Logger(subsystem: "org.onebusaway.opentrip", category: "app")
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Check if onboarding has been completed
         let hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "hasCompletedOnboarding")
 
-        print("SceneDelegate - Setting up window")
-        print("Has completed onboarding: \(hasCompletedOnboarding)")
+        logger.info("Setting up window")
+        logger.info("Has completed onboarding: \(hasCompletedOnboarding)")
 
         if hasCompletedOnboarding,
            let serverURL = UserDefaults.standard.url(forKey: "otpServerURL"),
@@ -33,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = navigationController
         } else {
             // Show onboarding
-            print("Showing onboarding screen")
+            logger.info("Showing onboarding screen")
             let onboardingVC = OnboardingViewController()
             onboardingVC.onboardingCompleteHandler = { [weak self] serverURL, regionInfo in
                 self?.showMainViewController(serverURL: serverURL, regionInfo: regionInfo)
@@ -42,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         window?.makeKeyAndVisible()
-        print("Window is key and visible")
+        logger.info("Window is key and visible")
 
         return true
     }

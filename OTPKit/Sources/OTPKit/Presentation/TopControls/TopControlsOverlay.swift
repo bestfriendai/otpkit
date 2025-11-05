@@ -51,10 +51,12 @@ struct TopControlsOverlay: View {
                 tripPlannerVM.presentSheet(.search(.destination))
             }
         }
-        .background(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(.regularMaterial)
-                .shadow(color: .black.opacity(0.08), radius: 12, y: 4)
+        .cardStyle(
+            cornerRadius: 16,
+            shadowRadius: 12,
+            shadowOpacity: 0.08,
+            shadowY: 4,
+            backgroundMaterial: .regularMaterial
         )
     }
 

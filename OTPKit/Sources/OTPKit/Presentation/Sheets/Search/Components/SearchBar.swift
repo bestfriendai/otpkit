@@ -27,6 +27,8 @@ struct SearchBar: View {
                 .onChange(of: searchText) { _, newValue in
                     onSearchTextChange(newValue)
                 }
+                .accessibilityLabel("Search for places")
+                .accessibilityHint("Enter a location name or address to search")
 
             if !searchText.isEmpty {
                 Button(action: {
@@ -37,6 +39,8 @@ struct SearchBar: View {
                         .foregroundColor(theme.secondaryColor)
                         .font(.system(size: 16))
                 })
+                .accessibilityLabel("Clear search")
+                .accessibilityHint("Tap to clear the search field")
             }
         }
         .padding(.horizontal, 12)
@@ -53,8 +57,8 @@ struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
         SearchBar(
             searchText: $searchText,
-            onSearchTextChange: { text in
-                print("Search text changed: \(text)")
+            onSearchTextChange: { _ in
+                // Preview search change
             }
         )
         .padding()

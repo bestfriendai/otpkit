@@ -49,6 +49,9 @@ struct RouteInputRow: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(PlainButtonStyle())
+        .accessibilityLabel("\(title) location: \(subtitle)")
+        .accessibilityHint("Tap to \(hasLocation ? "change" : "select") \(title.lowercased()) location")
+        .accessibilityAddTraits(.isButton)
     }
 }
 
